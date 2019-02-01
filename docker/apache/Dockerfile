@@ -12,6 +12,9 @@ RUN apt-get update \
         zlib1g-dev \
         wget \
         unzip \
+        sudo \
+        git \
+        imagemagick \
     && docker-php-ext-install intl \
     && docker-php-ext-install zip \
     && docker-php-ext-install pdo_mysql
@@ -30,8 +33,8 @@ RUN apt-get install -y \
 
 # install Imagemagick & PHP Imagick ext
 # ----------
-RUN apt-get install -y \
-        libmagickwand-dev --no-install-recommends \
+RUN apt-get install -y --no-install-recommends \
+        libmagickwand-dev \
     && pecl install imagick \
     && docker-php-ext-enable imagick
 
