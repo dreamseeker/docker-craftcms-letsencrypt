@@ -39,6 +39,15 @@ RUN apt-get install -y --no-install-recommends \
     && docker-php-ext-enable imagick
 
 
+# install BCMath & GMP for Freeform plugin
+# ----------
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libgmp-dev \
+    && docker-php-ext-install bcmath \
+    && docker-php-ext-install gmp
+
+
 # cleanup
 # ----------
 RUN apt-get clean \
