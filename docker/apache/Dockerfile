@@ -48,6 +48,13 @@ RUN apt-get update \
     && docker-php-ext-install gmp
 
 
+# install MySQL CLI
+# ----------
+RUN apt-get -y update \
+    && apt-get install -y \
+        default-mysql-client
+
+
 # cleanup
 # ----------
 RUN apt-get clean \
