@@ -11,6 +11,7 @@ RUN apt-get update \
         libicu-dev \
         libzip-dev \
         wget \
+        zip \
         unzip \
         sudo \
         git \
