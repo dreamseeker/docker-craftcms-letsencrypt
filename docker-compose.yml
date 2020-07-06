@@ -6,8 +6,8 @@ services:
     image: mysql:5.7
     restart: unless-stopped
     volumes:
-      - ${DB_PATH}:/var/lib/mysql
-      - ./docker/config/my.cnf:/etc/mysql/mysql.conf.d/my.cnf
+      - ${DB_PATH}:/var/lib/mysql:delegated
+      - ./docker/config/my.cnf:/etc/mysql/mysql.conf.d/my.cnf:cached
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -21,9 +21,9 @@ services:
     build: ./docker/apache/
     restart: unless-stopped
     volumes:
-      - ${APACHE_BASE_PATH}:/var/www/html
-      - ./docker/config/php.ini:/usr/local/etc/php/conf.d/user-php.ini
-      - ./docker/config/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ${APACHE_BASE_PATH}:/var/www/html:delegated
+      - ./docker/config/php.ini:/usr/local/etc/php/conf.d/user-php.ini:cached
+      - ./docker/config/000-default.conf:/etc/apache2/sites-available/000-default.conf:cached
     environment:
       VIRTUAL_HOST: ${DOMAINS}
       LETSENCRYPT_HOST: ${DOMAINS}
