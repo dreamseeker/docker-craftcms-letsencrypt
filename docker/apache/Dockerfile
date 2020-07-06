@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.4-apache
 
 #
 # PHP Configuration
@@ -29,7 +29,8 @@ RUN apt-get install -y \
         libjpeg-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+        libwebp-dev \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ --with-webp=/usr/include/ \
     && docker-php-ext-install gd
 
 
