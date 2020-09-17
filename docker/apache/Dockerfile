@@ -19,7 +19,8 @@ RUN apt-get update \
     && docker-php-ext-install intl \
     && docker-php-ext-install zip \
     && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install mysqli
+    && docker-php-ext-install mysqli \
+    && docker-php-ext-install opcache
 
 
 # install GD
@@ -53,7 +54,7 @@ RUN apt-get update \
 
 # install MySQL CLI
 # ----------
-RUN apt-get -y update \
+RUN apt-get update \
     && apt-get install -y \
         default-mysql-client
 
