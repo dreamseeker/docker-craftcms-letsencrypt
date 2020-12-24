@@ -121,6 +121,18 @@ macOS での説明となりますので、他の環境であれば適宜読み�
 6. ブラウザでアクセス
 
     `https://domain.com/admin` にアクセスすると Craft 3 のインストール画面が表示されます。
+
+### for Apple Silicon
+
+M1 Mac の場合は `arm64-craft3/.env` を作成し、`arm64-craft3` ディレクトリ内でコンテナの起動と初期化を実行します。
+
+```bash
+cd arm64-craft3
+docker-compose up -d --build
+```
+
+ただし、`Tech Preview of Docker Desktop for M1` 向けの暫定対応です。  
+事前にデータのバックアップを作成の上、自己責任にてご利用ください。
     
 ## Relations
 
