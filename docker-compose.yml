@@ -37,6 +37,6 @@ services:
     #   - ${HOST_HTTP_PORT}:80
 
 networks:
-    default:
-       external:
-         name: ${NETWORK}
+  default:
+    external: true
+    name: ${NETWORK}
