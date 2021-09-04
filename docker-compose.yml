@@ -4,6 +4,7 @@ services:
   db:
     container_name: ${CONTAINER_BASE_NAME}-db
     image: mysql:5.7
+    platform: linux/amd64
     restart: unless-stopped
     volumes:
       - ${DB_PATH}:/var/lib/mysql:delegated
