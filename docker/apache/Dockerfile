@@ -59,12 +59,6 @@ RUN apt-get update \
         default-mysql-client
 
 
-# install Xdebug
-# ----------
-RUN pecl install xdebug \
-      && docker-php-ext-enable xdebug
-
-
 # cleanup
 # ----------
 RUN apt-get clean \
